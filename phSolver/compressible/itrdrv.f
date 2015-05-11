@@ -517,7 +517,9 @@ c
                   if(iupdate.eq.0) then !update flow  
                      call itrCorrect ( y, ac, yold, acold, solinc)
                      call itrBC (y,  ac,  iBC,  BC, iper, ilwork)
+#ifdef DEBUG                     
                      call tnanq(y, 5, 'y_updbc')
+#endif                     
 c Elaine-SPEBC
                      if((irscale.ge.0).and.(myrank.eq.master)) then
                         call genscale(y, x, iBC)

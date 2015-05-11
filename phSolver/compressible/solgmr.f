@@ -452,9 +452,10 @@ c
      &             rmes,          BDiag,         iper,      
      &             ilwork,        lhsK,          col, 
      &             row,           rerr )
-
+#ifdef DEBUG
 	call tnanq(res,5, 'res_egmr')
 	call tnanq(BDiag,25, 'bdg_egmr')
+#endif
 c
 c.... **********************>>    EBE - GMRES    <<********************
 c
