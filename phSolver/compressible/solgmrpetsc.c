@@ -248,7 +248,9 @@ void     SolGMRp(double* y,         double* ac,        double* yold,
         ierr = MatSetOption(lhsP, MAT_NEW_NONZERO_ALLOCATION_ERR, PETSC_FALSE);
 
 // Next is Jed Brown's improvement to imprint Assembly to make that stage scalable after the first call
+#ifdef JEDBROWN        
         ierr = MatSetOption(lhsP, MAT_SUBSET_OFF_PROC_ENTRIES, PETSC_TRUE);
+#endif        
         ierr = MatSetUp(lhsP);
       
       PetscInt myMatStart, myMatEnd;
@@ -581,7 +583,9 @@ void     SolGMRpSclr(double* y,         double* ac,
         ierr = MatSetOption(lhsPs, MAT_NEW_NONZERO_ALLOCATION_ERR, PETSC_FALSE);
 
 // Next is Jed Brown's improvement to imprint Assembly to make that stage scalable after the first call
+#ifdef JEDBROWN        
         ierr = MatSetOption(lhsPs, MAT_SUBSET_OFF_PROC_ENTRIES, PETSC_TRUE);
+#endif        
         ierr = MatSetUp(lhsPs);
       
       PetscInt myMatStart, myMatEnd;
