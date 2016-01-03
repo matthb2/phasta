@@ -1,4 +1,7 @@
 project(phSolver)
+
+list(APPEND CMAKE_MODULE_PATH ${phSolver_SOURCE_DIR}/CMakeFiles)
+
 set(CMAKE_Fortran_MODULE_DIRECTORY ${phSolver_BINARY_DIR}/modules)
 include_directories(${CMAKE_Fortran_MODULE_DIRECTORY})
 
@@ -9,8 +12,22 @@ link_directories(${PETSC_LIBRARY_DIRS})
 include_directories(${PETSC_INCLUDE_DIRS})
 add_definitions(-DHAVE_PETSC)
 option(IS_JEDS_BRANCH "Use Jed's Experimental PETSc Optimizations" OFF)
+try_compile(PETSC_HAS_MAT_SUBSET_OFF_PROC_ENTRIES
+			${CMAKE_CURRENT_BINARY_DIR}/test_jed
+			${phSolver_SOURCE_DIR}/CMakeFiles/tests/petsc_subset_off_proc_entries
+			test_petsc_has_mat_subset_off_proc_entries)
+option(PHASTA_FORCE_DISABLE_PETSC_OPTIM "" OFF)
+mark_as_advanced(PHASTA_FORCE_DISABLE_PETSC_OPTIM)
+mark_as_advanced(IS_JEDS_BRANCH)
+if(PETSC_HAS_MAT_SUBSET_OFF_PROC_ENTRIES AND NOT PHASTA_FORCE_DISABLE_PETSC_OPTIM)
+	message(STATUS "Found Jed's PHASTA specific PETSc features")
+	add_definitions(-DJEDBROWN)
+endif()
 if(IS_JEDS_BRANCH)
 	add_definitions(-DJEDBROWN)
+	if(NOT PETSC_HAS_MAT_SUBSET_OFF_PROC_ENTRIES)
+		message(WARN "PETSc Features might be missing, expect failure")
+	endif()
 endif()
 endif(PHASTA_USE_PETSC)
 
