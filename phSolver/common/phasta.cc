@@ -27,6 +27,11 @@ using namespace std;
 #include <unistd.h>
 #endif
 
+#if defined(__linux__) && !defined(__bgq__)
+#include <sys/time.h>
+#include <sys/resource.h>
+#endif
+
 #include "common_c.h"
 #include "Input.h"
 #include "phstream.h"
@@ -158,6 +163,15 @@ int phasta( int argc, char *argv[] ) {
     int size,ierr;
     char inpfilename[100];
     char* pauseDebugger = getenv("catchDebugger");
+#if defined(__linux__) && !defined(__bgq__)
+    struct rlimit stack_size_lim;
+    int rlim_result;
+    memset(&stack_size_lim, 0, sizeof(struct rlimit));
+    stack_size_lim.rlim_cur = RLIM_INFINITY;
+    stack_size_lim.rlim_max = RLIM_INFINITY;
+    rlim_result = setrlimit(RLIMIT_STACK, &stack_size_lim);
+    if(rlim_result == -1) perror("setrlimit: ");
+#endif
     MPI_Comm_size (MPI_COMM_WORLD, &size);
     MPI_Comm_rank (MPI_COMM_WORLD, &myrank);
 
