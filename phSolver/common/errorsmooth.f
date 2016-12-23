@@ -2,10 +2,10 @@
      &                     shp,    shgl,  iBC)
 c
         use pointer_data
+        use eblock
 c
         include "common.h"
         include "mpif.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c
@@ -139,8 +139,8 @@ c     rmass  (nshg)            : lumped mass matrix
 c
 c----------------------------------------------------------------------
 c
+      use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c

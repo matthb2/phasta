@@ -2,8 +2,8 @@
 c
         use pointer_data
 c
+      use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
         include "mpif.h"
@@ -103,8 +103,8 @@ c
 c Ken Jansen, Winter 2000.  (Fortran 90)
 c----------------------------------------------------------------------
 c
+      use eblock
       include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 c
         real*8 x(numnp,nsd),              

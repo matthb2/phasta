@@ -18,8 +18,8 @@ c
 c Zdenek Johan, Winter 1992.
 c----------------------------------------------------------------------
 c
+      use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 

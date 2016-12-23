@@ -13,8 +13,8 @@ c Zdenek Johan, Winter 1991.  (Fortran 90)
 c----------------------------------------------------------------------
 c
       use turbSA ! access to d2wall
+      use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c

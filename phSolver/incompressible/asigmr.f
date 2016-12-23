@@ -21,8 +21,8 @@ c
 #endif
 
 
+      use eblock
       include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c
@@ -146,8 +146,8 @@ c Zdenek Johan, Winter 1991.  (Fortran 90)
 c----------------------------------------------------------------------
 c
       use     turbSA  
+      use eblock
       include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 c
         dimension y(nshg,ndofl),              ac(nshg,ndofl),

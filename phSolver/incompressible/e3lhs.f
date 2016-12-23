@@ -28,8 +28,8 @@ c     xlhs(blk%e,16,blk%s,blk%s) : left hand side
 c
 c
 c------------------------------------------------------------------------
+        use eblock
       include "common.h"
-        include "eblock.h"
         type (LocalBlkData) blk
 
 
@@ -279,8 +279,8 @@ c------------------------------------------------------------------------
      &                       xSebe )
 
 c
+        use eblock
       include "common.h"
-        include "eblock.h"
         type (LocalBlkData) blk
 
 

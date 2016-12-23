@@ -27,8 +27,8 @@ c
       use local_mass
       use timedata
 c
+      use eblock
       include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c
@@ -548,8 +548,8 @@ c
         use pointer_data
         use local_mass
 c
+      use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
         include "mpif.h"
 c

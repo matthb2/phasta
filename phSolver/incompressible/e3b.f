@@ -50,8 +50,8 @@ c Irene Vignon, Spring 2004
 c----------------------------------------------------------------------
 c
 	use spat_var_eps   ! use spatially-varying epl_ls
+        use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c
@@ -378,8 +378,8 @@ c*********************************************************************
 
         subroutine e3bSclr (blk,yl,      iBCB,    BCB,     shpb,    shglb,
      &                      xlb,     rl,      sgn,     dwl)
+      use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c

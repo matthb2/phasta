@@ -30,8 +30,8 @@ c Zdenek Johan, Winter 1991. (Recoded)
 c Zdenek Johan, Winter 1991. (Fortran 90)
 c----------------------------------------------------------------------
 c
+        use eblock
 	include "common.h"
-        include "eblock.h"
         type (LocalBlkData) blk
 
 c

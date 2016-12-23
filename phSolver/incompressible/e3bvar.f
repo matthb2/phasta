@@ -46,8 +46,8 @@ c Alberto Figueroa, Winter 2004.  CMM-FSI
 c----------------------------------------------------------------------
 c
       use        turbsa
+      use eblock
       include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c
@@ -801,8 +801,8 @@ c---------------------------------------------------------------------
      &                         shape,     WdetJb,   bnorm,
      &                         flux,      dwl )
 
+      use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c

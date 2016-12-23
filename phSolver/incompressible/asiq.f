@@ -22,8 +22,8 @@ c
 c----------------------------------------------------------------------
 c
         use turbsa      ! access to d2wall
+      use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c
@@ -93,8 +93,8 @@ c----------------------------------------------------------------------
      &                       rmass    )
 c
         use turbsa      ! access to d2wall
+      use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c

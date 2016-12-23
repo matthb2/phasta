@@ -21,8 +21,8 @@ c----------------------------------------------------------------------
 c
         use spat_var_eps   ! use spatially-varying epl_ls
 c
+        use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c
@@ -223,8 +223,8 @@ c diffusive flux vector and the lumped mass matrix.
 c
 c----------------------------------------------------------------------
 c
+      use eblock
         include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
 c

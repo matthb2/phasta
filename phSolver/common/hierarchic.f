@@ -12,8 +12,8 @@ c     returns the matrix of mode signs used for negating higher order
 c     basis functions. Connectivity array is assumed to have negative
 c     signs on all modes to be negated.
 c------------------------------------------------------------------------
+      use eblock
       include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
       dimension ien(blk%e,blk%s),  sgn(blk%e,blk%s)
@@ -34,8 +34,8 @@ c------------------------------------------------------------------------
 c     returns the matrix of element shape functions with the higher
 c     order modes correctly negated at the current quadrature point.
 c------------------------------------------------------------------------
+      use eblock
       include "common.h"
-      include "eblock.h"
       type (LocalBlkData) blk
 
       
